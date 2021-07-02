@@ -25,6 +25,8 @@ import cors from 'cors';
 import router from './routes/index';
 import cart from './routes/cart';
 import checkout from './routes/checkout';
+import payment from './routes/payment'
+import items from './routes/items'
 // Node creates cached instance of square-client, on initial load
 import './util/square-client';
 
@@ -38,10 +40,12 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, ".well-known")));
-app.use(cors({origin: 'http://localhost:3000'}));
+app.use(cors({origin: '*'}));
 app.use("/", router);
 app.use("/cart", cart);
 app.use("/checkout", checkout);
+app.use("/payment", payment);
+app.use("/items", items);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

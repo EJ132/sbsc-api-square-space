@@ -20,8 +20,29 @@ import JSONBig from 'json-bigint';
 import { randomBytes } from 'crypto';
 import { Cart } from '../models/cart';
 import { ordersApi, invoicesApi, paymentsApi } from '../util/square-client';
+import 'dotenv/config';
+
+const easyPostKey = process.env.EASYPOST_TEST_API_KEY;
+const Easypost = require('@easypost/api');
+const easypost_api = new Easypost(easyPostKey);
+
+var nodemailer = require('nodemailer');
 
 const router = express.Router();
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'ejg132@gmail.com',
+    pass: 'Sweetnest'
+  }
+});
+
+var mailOptions = {
+  from: 'ejg132@gmail.com',
+  to: 'ejg132@gmail.com',
+  subject: 'SBSC Receipt'
+};
 
 /**
  * Matches: POST /checkout/add-delivery-details/
@@ -65,10 +86,14 @@ router.post("/add-delivery-details", async (req, res, next) => {
     version
   } = req.body;
   try {
+
+    // Retrieves locations in order to display the store name
+    const { result: { locations } } = await locationsApi.listLocations();
+
     const orderRequestBody = {
       idempotencyKey: randomBytes(45).toString("hex"), // Unique identifier for request
       order: {
-        locationId,
+        locationId: locations[0].id,
         fulfillments: [{
           type: "SHIPMENT", // SHIPMENT type is determined by the endpoint
           state: "PROPOSED",
@@ -191,21 +216,124 @@ router.post("/create-invoice", async (req, res, next) => {
  *  idempotencyKey: Unique identifier for request from client
  *  nonce: Card nonce (a secure single use token) created by the Square Payment Form
  */
+
+router.post("/verify-address", async (req, res, next) => {
+
+  try {
+    console.log(req.body.addressDetails)
+
+    // const toAddress = new api.Address({ ... });
+    // const fromAddress = new api.Address({ ... });
+    // const parcel = new api.Parcel({ ... });
+    // const customsInfo = new api.CustomsInfo({ ... });
+
+    const toAddress = new easypost_api.Address({
+      verify: ['delivery'],
+      street1: req.body.addressDetails[2].addressLine1,
+      city: req.body.addressDetails[3].city,
+      state: req.body.addressDetails[4].state,
+      zip: req.body.addressDetails[5].zip,
+      country: 'US',
+      company: 'SBSC',
+      phone: req.body.addressDetails[6].phoneNumber,
+      carrier_facility: 'USPS',
+      name: req.body.addressDetails[0].firstName + ' ' + req.body.addressDetails[1].lastName,
+      email: req.body.addressDetails[7].emailAddress,
+    });
+
+    const fromAddress = new easypost_api.Address({
+      street1: "26640 S Western Ave E-2",
+      city: "Harbor City",
+      state: "CA",
+      zip: "90710",
+      country: 'US',
+      company: 'SBSC',
+      phone: "2169787444",
+      carrier_facility: 'USPS',
+      name: "Ashley Contorno",
+      email: "ashleycontorno@gmail.com",
+    });
+
+    const parcel = new easypost_api.Parcel({
+      length: 20.2,
+      width: 10.9,
+      height: 5,
+      weight: 10
+    });
+    
+    toAddress.save().then((addr) => {
+      console.log(addr);
+      if(addr.verifications.delivery.success){
+        res.json({
+          result: "Address Verified!",
+          data: true
+        })
+      } else {
+        res.json({
+          result: "Address not valid!",
+          data: false
+        })
+      }
+    });
+
+    // const shipment = new easypost_api.Shipment({
+    //   to_address: toAddress,
+    //   from_address: fromAddress,
+    //   parcel: parcel
+    // });
+    
+    // shipment.save().then(console.log);
+
+  } catch (error) {
+    next(error);
+    console.log(error)
+  }
+  
+});
+
 router.post("/payment", async (req, res, next) => {
   const {
     orderId,
     idempotencyKey,
     nonce
   } = req.body;
+  let orderRequestBody;
   try {
     // get the latest order information in case the price is changed from a different session
+
+    //ADD SHIPPING
+    let data = await ordersApi.retrieveOrder(orderId);
+    let orderDetails = JSON.parse(data.body)
+    console.log(orderDetails.order)
+    orderDetails.order.total_service_charge_money.amount = 4;
+    orderDetails.order.net_amounts.service_charge_money.amount = 4;
+    orderDetails.order.locationId = orderDetails.order.location_id;
+    console.log(orderDetails)
+    // data = {...data, }
+    await ordersApi.updateOrder(orderId, orderDetails).then(result => {console.log('made it here'); console.log(result)})
+    // console.log(data.body)
+    // console.log(JSON.parse(data.body))
+    // let amount = parseInt(order.totalMoney.amount)
+    // console.log(order.totalMoney) 
+
     const { result: { order } } = await ordersApi.retrieveOrder(orderId);
+
     if (order.totalMoney.amount > 0) {
       // Payment can only be made when order amount is greater than 0
-      const orderRequestBody = {
+      // let amount = order.totalMoney.amount.split('')
+      // console.log(order.totalMoney.amount.split('n'))
+      // console.log('here')
+      // console.log(amount)
+      // console.log(typeof order.totalMoney)
+      // console.log(parseInt(order.totalMoney))
+      orderRequestBody = {
         sourceId: nonce, // Card nonce created by the payment form
         idempotencyKey,
-        amountMoney: order.totalMoney, // Provides total amount of money and currency to charge for the order.
+        // amountMoney: (order.totalMoney + 4.50) + (order.totalMoney * 0.085).toFixed(2), // Provides total amount of money and currency to charge for the order.
+        amountMoney: {
+          amount: order.totalMoney.amount,
+          currency: 'USD'
+        },
         orderId: order.id, // Order that is associated with the payment
       };
     } else {
@@ -216,6 +344,34 @@ router.post("/payment", async (req, res, next) => {
     }
     const { result: { payment } } = await paymentsApi.createPayment(orderRequestBody);
     const paymentParsed = JSONBig.parse(JSONBig.stringify(payment));
+    console.log('Payment Details')
+    console.log(paymentParsed)
+
+    mailOptions.html = 
+    `
+    <h2 style="width: 100%; textAlign: center;">
+      South Bay Strength Company
+    </h2>
+    <p>Thank you for ordering with SBSC.</p>
+    <p>Receipt Number: ${paymentParsed.receiptNumber}</p>
+    <p>Receipt ID: ${paymentParsed.id}</p>
+    <br>
+    <p>You can view your receipt at: ${paymentParsed.receiptUrl}</p>
+    <br>
+    <br>
+    <p>If you have any questions regarding an order reach out to us here: info@southbaystrengthco.com</p>
+    <h4>South Bay Strength Co.</h4>
+    `
+
+
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+
     res.json(
       {
           result: "Success! Order paid!",
@@ -223,6 +379,7 @@ router.post("/payment", async (req, res, next) => {
         })
   } catch (error) {
     next(error);
+    console.log(error)
   }
 });
 

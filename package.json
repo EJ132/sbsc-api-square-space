@@ -10,22 +10,26 @@
     "help": "NODE_ENV=sandbox node -r esm ./bin/script/seed-catalog.js --help"
   },
   "dependencies": {
+    "@easypost/api": "^3.11.2",
     "body-parser": "*",
     "chokidar": "^3.5.1",
     "cookie-parser": "*",
     "cors": "^2.8.5",
     "debug": "^4.3.1",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "eslint": "^6.1.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
     "json-bigint": "^1.0.0",
     "morgan": "*",
+    "nodemailer": "^6.6.1",
     "request": "^2.88.0",
     "serve-favicon": "*",
-    "square": "^9.0.0"
+    "square": "^9.1.0",
+    "square-connect": "2.20190814.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.0"
+    "nodemon": "^1.19.0",
+    "square-connect": "2.20190814.0"
   }
 }

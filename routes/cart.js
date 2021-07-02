@@ -17,9 +17,10 @@ limitations under the License.
 import express from 'express';
 import JSONBig from 'json-bigint';
 
-import { ordersApi } from '../util/square-client';
+import { ordersApi, locationsApi } from '../util/square-client';
 import { randomBytes } from 'crypto';
 import { Cart } from '../models/cart';
+import { isNull } from 'util';
 
 const router = express.Router();
 
@@ -81,10 +82,14 @@ router.post("/update-order-add-item", async (req, res, next) => {
     version
   } = req.body;
   try {
+
+    // Retrieves locations in order to display the store name
+    const { result: { locations } } = await locationsApi.listLocations();
+
     const orderRequestBody = {
       idempotencyKey: randomBytes(45).toString("hex"), // Unique identifier for request
       order: {
-        locationId,
+        locationId: locations[0].id,
         lineItems: [{
           quantity: itemQuantity,
           catalogObjectId: itemVarId // ID for CatalogItem object
@@ -134,10 +139,14 @@ router.post("/update-order-item-quantity", async (req, res, next) => {
       itemQuantity
     } = req.body;
     try {
+
+      // Retrieves locations in order to display the store name
+      const { result: { locations } } = await locationsApi.listLocations();
+
       let { result: order } = await ordersApi.retrieveOrder(orderId);
       const orderRequestBody = {
         order: {
-          locationId,
+          locationId: locations[0].id,
           lineItems: [{
             uid: itemUid,  // ID for orderItem object
             quantity: itemQuantity,
@@ -159,17 +168,24 @@ router.post("/update-order-item-quantity", async (req, res, next) => {
   });
 
 router.post("/update-order-remove-item", async (req, res, next) => {
+  console.log(req.body)
   const {
       locationId,
       orderId,
-      itemUid
+      itemUid,
+      version
   } = req.body;
   try {
+
+    // Retrieves locations in order to display the store name
+    const { result: { locations } } = await locationsApi.listLocations();
+
     let {result : order } =  await ordersApi.retrieveOrder(orderId);
+    console.log(order)
     const orderRequestBody = {
       order: {
-        locationId,
-        version: order.version
+        locationId: locations[0].id,
+        version: order.order.version, 
       },
       fieldsToClear: [
         `line_items[${itemUid}]`
@@ -184,6 +200,7 @@ router.post("/update-order-remove-item", async (req, res, next) => {
           updatedOrder: order
         })
     } catch (error) {
+      console.log(error)
       next(error);
     }
   });
@@ -194,10 +211,14 @@ router.post("/update-order-empty-cart", async (req, res, next) => {
       orderId
   } = req.body;
   try {
+
+    // Retrieves locations in order to display the store name
+    const { result: { locations } } = await locationsApi.listLocations();
+
     let {result : order } =  await ordersApi.retrieveOrder(orderId);
     const orderRequestBody = {
       order: {
-        locationId,
+        locationId: locations[0].id,
         version: order.version
       },
       fieldsToClear: [
@@ -215,6 +236,69 @@ router.post("/update-order-empty-cart", async (req, res, next) => {
     } catch (error) {
       next(error);
     }
-  });
+});
+
+router.post("/update-order-shipping-information", async (req, res, next) => {
+  const {
+      orderId,
+      shippingDetails
+  } = req.body;
+
+
+  console.log(req.body)
+
+  try {
+
+    console.log(shippingDetails)
+
+    // Retrieves locations in order to display the store name
+    const { result: { locations } } = await locationsApi.listLocations();
+    console.log('made it to the end 4')
+    let {result : order } =  await ordersApi.retrieveOrder(orderId);
+    console.log('made it to the end 3')
+    const orderRequestBody = {
+      idempotencyKey: randomBytes(45).toString("hex"), // Unique identifier for request
+      order: {
+        locationId: locations[0].id,
+        fulfillments: [
+          {
+            type: 'SHIPMENT',
+            state: 'PROPOSED',
+            shipmentDetails: {
+              recipient: {
+                displayName: shippingDetails[0].firstName + " " + shippingDetails[1].lastName,
+                emailAddress: shippingDetails[7].emailAddress,
+                phoneNumber: shippingDetails[6].phoneNumber,
+                address: {
+                  addressLine1: shippingDetails[2].addressLine1,
+                  locality: shippingDetails[3].city,
+                  postalCode: shippingDetails[5].zip,
+                  country: 'US',
+                  firstName: shippingDetails[0].firstName,
+                  lastName: shippingDetails[1].lastName
+                }
+              },
+              carrier: 'USPS',
+              shippingType: 'First Class'
+            }
+          }
+        ],
+        version: order.order.version,
+        idempotencyKey: randomBytes(45).toString("hex"), // Unique identifier for request
+      },
+    };
+    console.log('made it to the end 2')
+    const updateCard = new Cart(orderId, orderRequestBody);
+    console.log('made it to the end')
+    order = await updateCard.update();
+    res.json(  
+      {
+          result: "Success! Cart is update (address information)!",
+          updatedOrder: order
+        })
+    } catch (error) {
+      next(error);
+    }
+});
 
 export default router;

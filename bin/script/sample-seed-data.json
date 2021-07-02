@@ -15,122 +15,162 @@
       }
     }
   },
-  "#Breakfast Category": {
+  "Men's Category": {
     "data": {
       "type": "CATEGORY",
-      "id": "#Breakfast Category",
+      "id": "#Men's Category",
       "presentAtAllLocations": true,
       "categoryData": {
-        "name": "Breakfast"
+        "name": "Men's"
       }
     }
   },
-  "#Entree Category": {
+  "Women's Category": {
     "data": {
       "type": "CATEGORY",
-      "id": "#Entree Category",
+      "id": "#Women's Category",
       "presentAtAllLocations": true,
       "categoryData": {
-        "name": "Entree"
+        "name": "Women's"
       }
     }
   },
-  "#Bacon Cheeseburger": {
+  "Sweatshirts Category": {
+    "data": {
+      "type": "CATEGORY",
+      "id": "#Sweatshirts Category",
+      "presentAtAllLocations": true,
+      "categoryData": {
+        "name": "Sweatshirts"
+      }
+    }
+  },
+  "Unisex Category": {
+    "data": {
+      "type": "CATEGORY",
+      "id": "#Unisex Category",
+      "presentAtAllLocations": true,
+      "categoryData": {
+        "name": "Unisex"
+      }
+    }
+  },
+  "Accessories Category": {
+    "data": {
+      "type": "CATEGORY",
+      "id": "#Accessories Category",
+      "presentAtAllLocations": true,
+      "categoryData": {
+        "name": "Acessories"
+      }
+    }
+  },
+  "Pets Category": {
+    "data": {
+      "type": "CATEGORY",
+      "id": "#Pets Category",
+      "presentAtAllLocations": true,
+      "categoryData": {
+        "name": "Pets"
+      }
+    }
+  },
+  "Clinics Category": {
+    "data": {
+      "type": "CATEGORY",
+      "id": "#Clinics Category",
+      "presentAtAllLocations": true,
+      "categoryData": {
+        "name": "Clinics"
+      }
+    }
+  },
+  "#Black Lightweight Zip Up": {
     "image": {
-      "url": "./bin/script/img/bacon-burger@2x.png",
-      "id": "#Bacon Cheeseburger",
-      "caption": "A picture of a bacon cheeseburger."
+      "url": "./bin/script/img/sbscLogo@2x.png",
+      "id": "#Black Lightweight Zip Up",
+      "caption": "A picture of a lightweight zip up."
     },
     "data": {
       "type": "ITEM",
-      "id": "#Bacon Cheeseburger",
+      "id": "#Black Lightweight Zip Up",
       "presentAtAllLocations": true,
       "itemData": {
-        "name": "Bacon Cheeseburger",
-        "description": "One mouth-watering, flame-grilled, quarter-pound angus beef burger with your choice of cheese on a sesame seed bun. Comes with a side of fries.",
-        "categoryId": "#Entree Category",
-        "variations": [{
-          "type": "ITEM_VARIATION",
-          "id": "#Regular Bacon Cheeseburger",
-          "isDeleted": false,
-          "presentAtAllLocations": true,
-          "itemVariationData": {
-            "itemId": "#Bacon Cheeseburger",
-            "name": "Regular",
-            "pricingType": "FIXED_PRICING",
-            "priceMoney": {
-              "amount": 995,
-              "currency": "USD"
-            }
-          }
-        }],
-        "taxIds": [
-          "#Sales Tax"
-        ]
-      }
-    }
-  },
-  "#Fried Chicken Sandwich": {
-    "image": {
-      "url": "./bin/script/img/chicken-sandwich@2x.png",
-      "id": "#Fried Chicken Sandwich",
-      "caption": "A picture of a fried chicken sandwich."
-    },
-    "data": {
-      "type": "ITEM",
-      "id": "#Fried Chicken Sandwich",
-      "itemData": {
-        "name": "Fried Chicken Sandwich",
-        "description": "A buttermilk fried chicken thigh with crispy skin on a sesame seed bun. Topped with fresh red cabbage slaw and jalapeños and our house hot sauce.",
-        "abbreviation": "FCS",
-        "categoryId": "#Entree Category",
-        "variations": [{
-          "type": "ITEM_VARIATION",
-          "id": "#Regular Fried Chicken Sandwich",
-          "isDeleted": false,
-          "presentAtAllLocations": true,
-          "itemVariationData": {
-            "itemId": "#Fried Chicken Sandwich",
-            "name": "Regular",
-            "pricingType": "FIXED_PRICING",
-            "priceMoney": {
-              "amount": 675,
-              "currency": "USD"
-            }
-          }
-        }],
-        "taxIds": [
-          "#Sales Tax"
-        ]
-      }
-    }
-  },
-  "#Sunny-Side Egg on Toast": {
-    "image": {
-      "url": "./bin/script/img/egg-sunnyside-up-on-toast@2x.png",
-      "id": "#Sunny-Side Egg on Toast",
-      "caption": "A picture of Sunny-Side Egg on Toast."
-    },
-    "data": {
-      "type": "ITEM",
-      "id": "#Sunny-Side Egg on Toast",
-      "itemData": {
-        "name": "Sunny-Side Egg on Toast",
-        "description": "One farm-fresh sunny side up egg, tomato, and green peppers on a slice of our toast fresh from our bakehouse.",
-        "abbreviation": "ET",
-        "categoryId": "#Breakfast Category",
+        "name": "Black Lightweight Zip Up",
+        "description": "Lightweight breathable cotton unsex hoodie that is perferct for warm and cool days",
+        "categoryId": "#Sweatshirts Category",
         "variations": [
           {
             "type": "ITEM_VARIATION",
-            "id": "#Regular Sunny-Side Egg on Toast",
+            "id": "#Small Black Lightweight Zip Up",
             "isDeleted": false,
             "presentAtAllLocations": true,
             "itemVariationData": {
-              "itemId": "#Sunny-Side Egg on Toast",
-              "name": "Regular",
+              "itemId": "#Black Lightweight Zip Up",
+              "name": "Small",
               "pricingType": "FIXED_PRICING",
               "priceMoney": {
-                "amount": 495,
+                "amount": 35,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Medium Black Lightweight Zip Up",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Black Lightweight Zip Up",
+              "name": "Medium",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 35,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Large Black Lightweight Zip Up",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Black Lightweight Zip Up",
+              "name": "Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 35,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#X-Large Black Lightweight Zip Up",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Black Lightweight Zip Up",
+              "name": "X-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 35,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#XX-Large Black Lightweight Zip Up",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Black Lightweight Zip Up",
+              "name": "XX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 35,
                 "currency": "USD"
               }
             }
@@ -142,32 +182,92 @@
       }
     }
   },
-  "#Grilled Steak": {
+  "#Royal Blue Lightweight Zip Up": {
     "image": {
-      "url": "./bin/script/img/grilled-steak@2x.png",
-      "id": "#Grilled Steak",
-      "caption": "A picture of grilled steak."
+      "url": "./bin/script/img/sbscLogo@2x.png",
+      "id": "#Royal Blue Lightweight Zip Up",
+      "caption": "A picture of a lightweight zip up."
     },
     "data": {
       "type": "ITEM",
-      "id": "#Grilled Steak",
+      "id": "#Royal Blue Lightweight Zip Up",
+      "presentAtAllLocations": true,
       "itemData": {
-        "name": "Grilled Steak",
-        "description": "Perfectly grilled flank steak that's been marinated in our award winning sauce, paired with fresh-from-the-farm veggies.",
-        "abbreviation": "BRF",
-        "categoryId": "#Entree Category",
+        "name": "Royal Blue Lightweight Zip Up",
+        "description": "Lightweight breathable cotton unsex hoodie that is perferct for warm and cool days",
+        "categoryId": "#Sweatshirts Category",
         "variations": [
           {
             "type": "ITEM_VARIATION",
-            "id": "#Regular Grilled Steak",
+            "id": "#Small Lightweight Zip Up",
             "isDeleted": false,
             "presentAtAllLocations": true,
             "itemVariationData": {
-              "itemId": "#Grilled Steak",
-              "name": "Regular",
+              "itemId": "#Royal Blue Lightweight Zip Up",
+              "name": "Small",
               "pricingType": "FIXED_PRICING",
               "priceMoney": {
-                "amount": 1195,
+                "amount": 35,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Medium Lightweight Zip Up",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Royal Blue Lightweight Zip Up",
+              "name": "Medium",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 35,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Large Lightweight Zip Up",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Royal Blue Lightweight Zip Up",
+              "name": "Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 35,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#X-Large Lightweight Zip Up",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Royal Blue Lightweight Zip Up",
+              "name": "X-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 35,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#XX-Large Lightweight Zip Up",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Royal Blue Lightweight Zip Up",
+              "name": "XX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 35,
                 "currency": "USD"
               }
             }
@@ -179,67 +279,92 @@
       }
     }
   },
-  "#Italian Sandwich": {
+  "#Men's T-Shirt": {
     "image": {
-      "url": "./bin/script/img/italian-sandwich@2x.png",
-      "id": "#Italian Sandwich",
-      "caption": "A picture of a sandwich."
+      "url": "./bin/script/img/mensTshirt@2x.png",
+      "id": "#Men's T-Shirt",
+      "caption": "A picture of a men's t-shirt."
     },
     "data": {
       "type": "ITEM",
-      "id": "#Italian Sandwich",
+      "id": "#Men's T-Shirt",
+      "presentAtAllLocations": true,
       "itemData": {
-        "name": "Italian Sandwich",
-        "description": "Salami, capicolla, ham, provolone, fresh lettuce, peppers, onion, and olive oil served on our homemade sourdough. What more could you want in a sandwich?",
-        "abbreviation": "IS",
-        "categoryId": "#Entree Category",
-        "variations": [{
-          "type": "ITEM_VARIATION",
-          "id": "#Regular Italian Sandwich",
-          "isDeleted": false,
-          "presentAtAllLocations": true,
-          "itemVariationData": {
-            "itemId": "#Italian Sandwich",
-            "name": "Regular",
-            "pricingType": "FIXED_PRICING",
-            "priceMoney": {
-              "amount": 895,
-              "currency": "USD"
-            }
-          }
-        }],
-        "taxIds": [
-          "#Sales Tax"
-        ]
-      }
-    }
-  },
-  "#Meatballs": {
-    "image": {
-      "url": "./bin/script/img/meatballs@2x.png",
-      "id": "#Meatballs",
-      "caption": "A picture of meatballs."
-    },
-    "data": {
-      "type": "ITEM",
-      "id": "#Meatballs",
-      "itemData": {
-        "name": "Meatballs",
-        "description": "Lean grilled lamb meatballs served with fresh greens. Perfect for those on a ketogenic diet.",
-        "abbreviation": "MB",
-        "categoryId": "#Entree Category",
+        "name": "Men's T-Shirt",
+        "description": "100% cotton, tear away label, comfy as all hell. Rep your favorite brand and guarantee a PR as soon as you put it on.",
+        "categoryId": "#Men's Category",
         "variations": [
           {
             "type": "ITEM_VARIATION",
-            "id": "#Regular Meatballs",
+            "id": "#Medium Men's T-Shirt",
             "isDeleted": false,
             "presentAtAllLocations": true,
             "itemVariationData": {
-              "itemId": "#Meatballs",
-              "name": "Regular",
+              "itemId": "#Men's T-Shirt",
+              "name": "Medium",
               "pricingType": "FIXED_PRICING",
               "priceMoney": {
-                "amount": 695,
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Large Men's T-Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Men's T-Shirt",
+              "name": "Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#X-Large Men's T-Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Men's T-Shirt",
+              "name": "X-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#XX-Large Men's T-Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Men's T-Shirt",
+              "name": "XX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#XXX-Large Men's T-Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Men's T-Shirt",
+              "name": "XXX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
                 "currency": "USD"
               }
             }
@@ -251,67 +376,81 @@
       }
     }
   },
-  "#Mediterranean Yogurt Bowl": {
+  "#Men's Mesh+Compression Shorts": {
     "image": {
-      "url": "./bin/script/img/mediterranean-yogurt-bowl@2x.png",
-      "id": "#Mediterranean Yogurt Bowl",
-      "caption": "A picture of a Mediterranean Yogurt Bowl."
+      "url": "./bin/script/img/mens-compression@2x.jpg",
+      "id": "#Men's Mesh+Compression Shorts",
+      "caption": "A picture of a men's mesh compression shorts."
+    },
+    "taxData": {
+      "name": "10PCTax",
+      "percentage": "10"
     },
     "data": {
       "type": "ITEM",
-      "id": "#Mediterranean Yogurt Bowl",
+      "id": "#Men's Mesh+Compression Shorts",
+      "presentAtAllLocations": true,
       "itemData": {
-        "name": "Mediterranean Yogurt Bowl",
-        "description": "Greek yogurt topped with olives, chopped peppers, cucumber, crispy chickpeas, beans, and figs. Served with our fresh homemade pita.",
-        "abbreviation": "MYB",
-        "categoryId": "#Entree Category",
-        "variations": [{
-          "type": "ITEM_VARIATION",
-          "id": "#Regular Mediterranean Yogurt Bowl",
-          "isDeleted": false,
-          "presentAtAllLocations": true,
-          "itemVariationData": {
-            "itemId": "#Mediterranean Yogurt Bowl",
-            "name": "Regular",
-            "pricingType": "FIXED_PRICING",
-            "priceMoney": {
-              "amount": 495,
-              "currency": "USD"
-            }
-          }
-        }],
-        "taxIds": [
-          "#Sales Tax"
-        ]
-      }
-    }
-  },
-  "#Oatmeal with Fruit": {
-    "image": {
-      "url": "./bin/script/img/oatmeal-with-fruit@2x.png",
-      "id": "#Oatmeal with Fruit",
-      "caption": "A picture of Oatmeal with Fruit."
-    },
-    "data": {
-      "type": "ITEM",
-      "id": "#Oatmeal with Fruit",
-      "itemData": {
-        "name": "Oatmeal with Fruit",
-        "description": "A classic hot breakfast comprised of our famous steel-cut oats topped with fruit and almond slices straight from locally owned farms.",
-        "abbreviation": "SB",
-        "categoryId": "#Breakfast Category",
+        "name": "Men's Mesh+Compression Shorts",
+        "description": "Mesh on the outside and compression on the inside with pockets. These fit snug so if on the fence about sizing, go a size up. Skip underwear with these shorts because they are built in!",
+        "categoryId": "#Men's Category",
         "variations": [
           {
             "type": "ITEM_VARIATION",
-            "id": "#Regular Oatmeal with Fruit",
+            "id": "#Medium Men's Mesh+Compression Shorts",
             "isDeleted": false,
             "presentAtAllLocations": true,
             "itemVariationData": {
-              "itemId": "#Oatmeal with Fruit",
-              "name": "Regular",
+              "itemId": "#Men's Mesh+Compression Shorts",
+              "name": "Medium",
               "pricingType": "FIXED_PRICING",
               "priceMoney": {
-                "amount": 495,
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Large Men's Mesh+Compression Shorts",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Men's Mesh+Compression Shorts",
+              "name": "Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#X-Large Men's Mesh+Compression Shorts",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Men's Mesh+Compression Shorts",
+              "name": "X-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#XX-Large Men's Mesh+Compression Shorts",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Men's Mesh+Compression Shorts",
+              "name": "XX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
                 "currency": "USD"
               }
             }
@@ -323,32 +462,92 @@
       }
     }
   },
-  "#Pancakes with Fruit": {
+  "#Men's Compression Shorts": {
     "image": {
-      "url": "./bin/script/img/pancakes-with-fruit@2x.png",
-      "id": "#Pancakes with Fruit",
-      "caption": "A picture of Pancakes with Fruit."
+      "url": "./bin/script/img/mens-compression@2x.jpg",
+      "id": "#Men's Compression Shorts",
+      "caption": "A picture of a men's compression shorts."
     },
     "data": {
       "type": "ITEM",
-      "id": "#Pancakes with Fruit",
+      "id": "#Men's Compression Shorts",
+      "presentAtAllLocations": true,
       "itemData": {
-        "name": "Pancakes with Fruit",
-        "description": "The fluffiest, most perfectly golden pancakes you've ever had topped with fresh fruit from local farms. Real Canadian maple syrup served on the side.",
-        "abbreviation": "PF",
-        "categoryId": "#Breakfast Category",
+        "name": "Men's Compression Shorts",
+        "description": "Dont be without, 2 pockets to store your goodies, 7'' inseam, and non-see through material to protect your junk.",
+        "categoryId": "#Men's Category",
         "variations": [
           {
             "type": "ITEM_VARIATION",
-            "id": "#Regular Pancakes with Fruit",
+            "id": "#Small Men's Compression Shorts",
             "isDeleted": false,
             "presentAtAllLocations": true,
             "itemVariationData": {
-              "itemId": "#Pancakes with Fruit",
-              "name": "Regular",
+              "itemId": "#Men's Compression Shorts",
+              "name": "Small",
               "pricingType": "FIXED_PRICING",
               "priceMoney": {
-                "amount": 995,
+                "amount": 22,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Medium Men's Compression Shorts",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Men's Compression Shorts",
+              "name": "Medium",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 22,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Large Men's Compression Shorts",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Men's Compression Shorts",
+              "name": "Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 22,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#X-Large Men's Compression Shorts",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Men's Compression Shorts",
+              "name": "X-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 22,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#XX-Large Men's Compression Shorts",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Men's Compression Shorts",
+              "name": "XX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 22,
                 "currency": "USD"
               }
             }
@@ -360,32 +559,107 @@
       }
     }
   },
-  "#Salmon with Zucchini": {
+  "#Sumo Gang T-Shirt": {
     "image": {
-      "url": "./bin/script/img/salmon-with-zucchini@2x.png",
-      "id": "#Salmon with Zucchini",
-      "caption": "A picture of chicken."
+      "url": "./bin/script/img/sumoGang-tshirt@2x.jpeg",
+      "id": "#Sumo Gang T-Shirt",
+      "caption": "A picture of sumo gang t-shirt."
     },
     "data": {
       "type": "ITEM",
-      "id": "#Salmon with Zucchini",
+      "id": "#Sumo Gang T-Shirt",
+      "presentAtAllLocations": true,
       "itemData": {
-        "name": "Salmon with Zucchini",
-        "description": "Fresh caught Alaskan king salmon served on a bed of braised spinach and diced zucchini.",
-        "abbreviation": "SZ",
-        "categoryId": "#Entree Category",
+        "name": "Sumo Gang T-Shirt",
+        "description": "Its a movement, one with your feet far apart. Sumo, if you know you know. SUMO GANG!",
+        "categoryId": "#Unisex Category",
         "variations": [
           {
             "type": "ITEM_VARIATION",
-            "id": "#Regular Salmon with Zucchini",
+            "id": "#Small Sumo Gang T-Shirt",
             "isDeleted": false,
             "presentAtAllLocations": true,
             "itemVariationData": {
-              "itemId": "#Salmon with Zucchini",
-              "name": "Regular",
+              "itemId": "#Sumo Gang T-Shirt",
+              "name": "Small",
               "pricingType": "FIXED_PRICING",
               "priceMoney": {
-                "amount": 1495,
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Medium Sumo Gang T-Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Sumo Gang T-Shirt",
+              "name": "Medium",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Large Sumo Gang T-Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Sumo Gang T-Shirt",
+              "name": "Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#X-Large Sumo Gang T-Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Sumo Gang T-Shirt",
+              "name": "X-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#XX-Large Sumo Gang T-Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Sumo Gang T-Shirt",
+              "name": "XX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#XXX-Large Sumo Gang T-Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Sumo Gang T-Shirt",
+              "name": "XXX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
                 "currency": "USD"
               }
             }
@@ -397,32 +671,212 @@
       }
     }
   },
-  "#Steak Tacos": {
+  "#Custom Singlet": {
     "image": {
-      "url": "./bin/script/img/steak-tacos@2x.png",
-      "id": "#Steak Tacos",
-      "caption": "A picture of Steak Tacos."
+      "url": "./bin/script/img/singlet@2x.png",
+      "id": "#Custom Singlet",
+      "caption": "A picture of a custom singlet."
     },
     "data": {
       "type": "ITEM",
-      "id": "#Steak Tacos",
+      "id": "#Custom Singlet",
+      "presentAtAllLocations": true,
       "itemData": {
-        "name": "Steak Tacos",
-        "description": "Two tacos with flank steak marinated for a minimum of 24 hours in our award-winning marinade. Topped with a mix of fresh cilantro and cooling cucumber.",
-        "abbreviation": "ST",
-        "categoryId": "#Entree Category",
+        "name": "Custom Singlet",
+        "description": "This singlet is made of a stretchy, breathable, and comfortable nylon/spandex Lycra blend. It’s lightweight, but we kept the fabric thick enough to keep its shape well without losing stretch. Between the fabric and the reinforced flatlock stitching, this baby has superior durability and is truly made to last. The shape and cut of the singlet around the shoulders, legs, and torso was specifically designed to be form-fitting to any body type without making you feel constricted or uncomfortable. The leggings are medium length so you have the option to either show off your chiseled thighs or keep them covered if you’re a little more traditional. The leg band has elastic on the inside to keep them in place, but don’t worry – we left out that annoying rubber gripper that rips out all your leg hairs. UPON ORDER SBSC WILL CONTACT YOU FOR ORDER AND PRICE.",
+        "categoryId": "#Unisex Category",
         "variations": [
           {
             "type": "ITEM_VARIATION",
-            "id": "#Regular Steak Tacos",
+            "id": "#Custom Measurements Custom Singlet",
             "isDeleted": false,
             "presentAtAllLocations": true,
             "itemVariationData": {
-              "itemId": "#Steak Tacos",
-              "name": "Regular",
+              "itemId": "#Custom Singlet",
+              "name": "Custom Measurements",
               "pricingType": "FIXED_PRICING",
               "priceMoney": {
-                "amount": 695,
+                "amount": 100,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#(Men's) Small Custom Singlet",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Custom Singlet",
+              "name": "(Men's) Small",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 100,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#(Men's) Medium Custom Singlet",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Custom Singlet",
+              "name": "(Men's) Medium",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 100,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#(Men's) Large Custom Singlet",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Custom Singlet",
+              "name": "(Men's) Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 100,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#(Men's) X-Large Custom Singlet",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Custom Singlet",
+              "name": "(Men's) X-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 100,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#(Men's) XX-Large Custom Singlet",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Custom Singlet",
+              "name": "(Men's) XX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 100,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#(Men's) XXX-Large Custom Singlet",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Custom Singlet",
+              "name": "(Men's) XXX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 100,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#(Women's) Small Custom Singlet",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Custom Singlet",
+              "name": "(Women's) Small",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 100,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#(Women's) Medium Custom Singlet",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Custom Singlet",
+              "name": "(Women's) Medium",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 100,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#(Women's) Large Custom Singlet",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Custom Singlet",
+              "name": "(Women's) Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 100,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#(Women's) X-Large Custom Singlet",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Custom Singlet",
+              "name": "(Women's) X-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 100,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#(Women's) XX-Large Custom Singlet",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Custom Singlet",
+              "name": "(Women's) XX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 100,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#(Women's) XXX-Large Custom Singlet",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Custom Singlet",
+              "name": "(Women's) XXX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 100,
                 "currency": "USD"
               }
             }
@@ -434,31 +888,992 @@
       }
     }
   },
-  "#Autumn Soup": {
+  "#Crush It Singlet Shirt": {
     "image": {
-      "url": "./bin/script/img/autumn-soup@2x.png",
-      "id": "#Autumn Soup",
-      "caption": "A picture of Autumn Soup."
+      "url": "./bin/script/img/crushIt@2x.png",
+      "id": "#Crush It Singlet Shirt",
+      "caption": "A picture of the Crush It Singlet Shirt."
     },
     "data": {
       "type": "ITEM",
-      "id": "#Autumn Soup",
+      "id": "#Crush It Singlet Shirt",
+      "presentAtAllLocations": true,
       "itemData": {
-        "name": "Autumn Soup",
-        "description": "The smoothest butternut squash soup you've ever had served with locally made goat cheese and toasted nuts.",
-        "abbreviation": "AS",
+        "name": "Crush It Singlet Shirt",
+        "description": "Wear under your singlet in your next comp or while hitting PR's at the gym. This Tee is printed in 4 locations so from every angle you will be reppin it for the SBSC fam.",
+        "categoryId": "#Unisex Category",
         "variations": [
           {
             "type": "ITEM_VARIATION",
-            "id": "#Regular Autumn Soup",
+            "id": "#Extra Small Crush It Singlet Shirt",
             "isDeleted": false,
             "presentAtAllLocations": true,
             "itemVariationData": {
-              "itemId": "#Autumn Soup",
-              "name": "Regular",
+              "itemId": "#Crush It Singlet Shirt",
+              "name": "X-Small",
               "pricingType": "FIXED_PRICING",
               "priceMoney": {
-                "amount": 695,
+                "amount": 26,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Small Crush It Singlet Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Crush It Singlet Shirt",
+              "name": "Small",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 26,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Medium Crush It Singlet Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Crush It Singlet Shirt",
+              "name": "Medium",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 26,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Large Crush It Singlet Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Crush It Singlet Shirt",
+              "name": "Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 26,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#X-Large Crush It Singlet Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Crush It Singlet Shirt",
+              "name": "X-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 26,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#XX-Large Crush It Singlet Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Crush It Singlet Shirt",
+              "name": "XX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 26,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#XXX-Large Crush It Singlet Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Crush It Singlet Shirt",
+              "name": "XXX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 26,
+                "currency": "USD"
+              }
+            }
+          }
+        ],
+        "taxIds": [
+          "#Sales Tax"
+        ]
+      }
+    }
+  },
+  "#BBB Crop": {
+    "image": {
+      "url": "./bin/script/img/BBB-shirt@2x.png",
+      "id": "#BBB Crop",
+      "caption": "A picture of the bbb crop top."
+    },
+    "data": {
+      "type": "ITEM",
+      "id": "#BBB Crop",
+      "presentAtAllLocations": true,
+      "itemData": {
+        "name": "BBB Crop",
+        "description": "Wheres all my big bench bitches at?!?!?!?! Rep that bar and those titties with this BBB crop top.",
+        "categoryId": "#Women's Category",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Small BBB Crop",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#BBB Crop",
+              "name": "Small",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 22,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Medium BBB Crop",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#BBB Crop",
+              "name": "Medium",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 22,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Large BBB Crop",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#BBB Crop",
+              "name": "Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 22,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#X-Large BBB Crop",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#BBB Crop",
+              "name": "X-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 22,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#XX-Large BBB Crop",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#BBB Crop",
+              "name": "XX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 22,
+                "currency": "USD"
+              }
+            }
+          }
+        ],
+        "taxIds": [
+          "#Sales Tax"
+        ]
+      }
+    }
+  },
+  "#Women's T-Shirt": {
+    "image": {
+      "url": "./bin/script/img/womens-tshirt@2x.png",
+      "id": "#Women's T-Shirt",
+      "caption": "A picture of south bay strength company women's t-shirt."
+    },
+    "data": {
+      "type": "ITEM",
+      "id": "#Women's T-Shirt",
+      "presentAtAllLocations": true,
+      "itemData": {
+        "name": "Women's T-Shirt",
+        "description": "100% cotton, tear away label, comfy as all hell. Rep your favorite brand and guarantee a PR as soon as you put it on. ",
+        "categoryId": "#Women's Category",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Small Women's T-Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Women's T-Shirt",
+              "name": "Small",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Medium Women's T-Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Women's T-Shirt",
+              "name": "Medium",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Large Women's T-Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Women's T-Shirt",
+              "name": "Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#X-Large Women's T-Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Women's T-Shirt",
+              "name": "X-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#XX-Large Women's T-Shirt",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Women's T-Shirt",
+              "name": "XX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          }
+        ],
+        "taxIds": [
+          "#Sales Tax"
+        ]
+      }
+    }
+  },
+  "#Multi-Color Women's 4' Inseam Dual Pocket Shorts": {
+    "image": {
+      "url": "./bin/script/img/4in-seems@2x.jpg",
+      "id": "#Multi-Color Women's 4' Inseam Dual Pocket Shorts",
+      "caption": "A picture of Multi-Color Women's 4' Inseam Dual Pocket Shorts."
+    },
+    "data": {
+      "type": "ITEM",
+      "id": "#Multi-Color Women's 4' Inseam Dual Pocket Shorts",
+      "presentAtAllLocations": true,
+      "itemData": {
+        "name": "Multi-Color Women's 4' Inseam Dual Pocket Shorts",
+        "description": "4' inseam so your goodies are covered. 2 pockets to store all of your things. Material soft as butter....what more could a girl want?!?!",
+        "categoryId": "#Women's Category",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Small Multi-Color Women's 4' Inseam Dual Pocket Shorts",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Multi-Color Women's 4' Inseam Dual Pocket Shorts",
+              "name": "Small",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 24,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Medium Multi-Color Women's 4' Inseam Dual Pocket Shorts",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Multi-Color Women's 4' Inseam Dual Pocket Shorts",
+              "name": "Medium",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 24,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Large Multi-Color Women's 4' Inseam Dual Pocket Shorts",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Multi-Color Women's 4' Inseam Dual Pocket Shorts",
+              "name": "Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 24,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#X-Large Multi-Color Women's 4' Inseam Dual Pocket Shorts",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Multi-Color Women's 4' Inseam Dual Pocket Shorts",
+              "name": "X-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 24,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#XX-Large Multi-Color Women's 4' Inseam Dual Pocket Shorts",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Multi-Color Women's 4' Inseam Dual Pocket Shorts",
+              "name": "XX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 24,
+                "currency": "USD"
+              }
+            }
+          }
+        ],
+        "taxIds": [
+          "#Sales Tax"
+        ]
+      }
+    }
+  },
+  "#Women's Tank Top": {
+    "image": {
+      "url": "./bin/script/img/womens-tankTop@2x.png",
+      "id": "#Women's Tank Top",
+      "caption": "A picture of Women's Tank Top."
+    },
+    "data": {
+      "type": "ITEM",
+      "id": "#Women's Tank Top",
+      "presentAtAllLocations": true,
+      "itemData": {
+        "name": "Women's Tank Top",
+        "description": "Razor Back flowy cotton womens tank.",
+        "categoryId": "#Women's Category",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Small Women's Tank Top",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Women's Tank Top",
+              "name": "Small",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 20,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Medium Women's Tank Top",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Women's Tank Top",
+              "name": "Medium",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 20,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Large Women's Tank Top",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Women's Tank Top",
+              "name": "Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 20,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#X-Large Women's Tank Top",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Women's Tank Top",
+              "name": "X-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 20,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#XX-Large Women's Tank Top",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Women's Tank Top",
+              "name": "XX-Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 20,
+                "currency": "USD"
+              }
+            }
+          }
+        ],
+        "taxIds": [
+          "#Sales Tax"
+        ]
+      }
+    }
+  },
+  "#2.2L Water Jug": {
+    "image": {
+      "url": "./bin/script/img/2L@2x.jpg",
+      "id": "#2.2L Water Jug",
+      "caption": "A picture of sbsc water jug."
+    },
+    "data": {
+      "type": "ITEM",
+      "id": "#2.2L Water Jug",
+      "presentAtAllLocations": true,
+      "itemData": {
+        "name": "2.2L Water Jug",
+        "description": "[Large Capacity] Sports water bottle 2.2L will meet your normal water needs for a day and help better track your water intake. Opening on the top is perfect for filling the bottle with ice cubes, fruit or different sports drinks.",
+        "categoryId": "#Accessories Category",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Original 2.2L Water Jug",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#2.2L Water Jug",
+              "name": "Original 2.2L Water Jug",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 12,
+                "currency": "USD"
+              }
+            }
+          }
+        ],
+        "taxIds": [
+          "#Sales Tax"
+        ]
+      }
+    }
+  },
+  "#Backpack": {
+    "image": {
+      "url": "./bin/script/img/backpack@2x.png",
+      "id": "#Backpack",
+      "caption": "A picture of a sbsc backpack"
+    },
+    "data": {
+      "type": "ITEM",
+      "id": "#Backpack",
+      "presentAtAllLocations": true,
+      "itemData": {
+        "name": "Backpack",
+        "description": "To school or the gym, this SBSC back pack will keep you looking fly and crushing shit! Lap top pouch, 3 storage posckets inside and 3 outside.",
+        "categoryId": "#Accessories Category",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Black Backpack",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Backpack",
+              "name": "SBSC Backpack",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 18,
+                "currency": "USD"
+              }
+            }
+          }
+        ],
+        "taxIds": [
+          "#Sales Tax"
+        ]
+      }
+    }
+  },
+  "#SBSC Flag": {
+    "image": {
+      "url": "./bin/script/img/sbsc-flag@2x.png",
+      "id": "#SBSC Flag",
+      "caption": "A picture of a sbsc flag"
+    },
+    "data": {
+      "type": "ITEM",
+      "id": "#SBSC Flag",
+      "presentAtAllLocations": true,
+      "itemData": {
+        "name": "SBSC Flag",
+        "description": "Represent SBSC in your home gym or garage! 2 Sizes to fit your needs 3x2 and 5x3 both horizontally orientated. Custom sizes/shapes/colors available upon request.",
+        "categoryId": "#Accessories Category",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#3x2 SBSC Flag",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#SBSC Flag",
+              "name": "3x2 SBSC Flag",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#5x3 SBSC Flag",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#SBSC Flag",
+              "name": "5x3 SBSC Flag",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 35,
+                "currency": "USD"
+              }
+            }
+          }
+        ],
+        "taxIds": [
+          "#Sales Tax"
+        ]
+      }
+    }
+  },
+  "#The Best Gym Bag Ever": {
+    "image": {
+      "url": "./bin/script/img/bestGym-bag@2x.jpg",
+      "id": "#The Best Gym Bag Ever",
+      "caption": "A picture of the best gym bag ever."
+    },
+    "data": {
+      "type": "ITEM",
+      "id": "#The Best Gym Bag Ever",
+      "presentAtAllLocations": true,
+      "itemData": {
+        "name": "The Best Gym Bag Ever",
+        "description": "We dare you to put all of your gym gear in here....it will fit! With the capacity to hold anything from a 24 pack to all of your grand-mothers nic-nacks, we got you covered. Wear as a back pack, over the shoulder gym sack, or be a savage and rock it bare back.",
+        "categoryId": "#Accessories Category",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Black The Best Gym Bag Ever",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#The Best Gym Bag Ever",
+              "name": "Black",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 31,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Grey The Best Gym Bag Ever",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#The Best Gym Bag Ever",
+              "name": "Grey",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 35,
+                "currency": "USD"
+              }
+            }
+          }
+        ],
+        "taxIds": [
+          "#Sales Tax"
+        ]
+      }
+    }
+  },
+  "#Headband": {
+    "image": {
+      "url": "./bin/script/img/headband@2x.png",
+      "id": "#Headband",
+      "caption": "A picture of a sbsc headband"
+    },
+    "data": {
+      "type": "ITEM",
+      "id": "#Headband",
+      "presentAtAllLocations": true,
+      "itemData": {
+        "name": "Headband",
+        "description": "Stretchy and bright. Represent SBSC just right! These headbands are approved for competitions! Look badass while youre crushing shit on the platform or in the gym.",
+        "categoryId": "#Accessories Category",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Black Headband",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Headband",
+              "name": "Black",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 39,
+                "currency": "USD"
+              }
+            }
+          }
+        ],
+        "taxIds": [
+          "#Sales Tax"
+        ]
+      }
+    }
+  },
+  "#SBSC Dog Collar": {
+    "image": {
+      "url": "./bin/script/img/dogCollar@2x.png",
+      "id": "#SBSC Dog Collar",
+      "caption": "A picture of a SBSC Dog Collar"
+    },
+    "data": {
+      "type": "ITEM",
+      "id": "#SBSC Dog Collar",
+      "presentAtAllLocations": true,
+      "itemData": {
+        "name": "SBSC Dog Collar",
+        "description": "The doggies of SBSC need swag too riteeee?!?!?! The small collars are 1in thick and go up to 12in long. The Large collars are 1in thick and go up to 20in long.",
+        "categoryId": "#Pets Category",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Small SBSC Dog Collar",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#SBSC Dog Collar",
+              "name": "Small",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 18,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Large SBSC Dog Collar",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#SBSC Dog Collar",
+              "name": "Large",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 28,
+                "currency": "USD"
+              }
+            }
+          }
+        ],
+        "taxIds": [
+          "#Sales Tax"
+        ]
+      }
+    }
+  },
+  "#Deadlift Socks": {
+    "image": {
+      "url": "./bin/script/img/deadliftSocks@2x.png",
+      "id": "#Deadlift Socks",
+      "caption": "A picture of deadlift socks"
+    },
+    "data": {
+      "type": "ITEM",
+      "id": "#Deadlift Socks",
+      "presentAtAllLocations": true,
+      "itemData": {
+        "name": "Deadlift Socks",
+        "description": "Weather on the platform or in the gym, these SBSC deadlift socks are one size fits all, even big boy calves! Stand up, Stand out, and crush shit!",
+        "categoryId": "#Accessories Category",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Black Deadlift Socks",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Deadlift Socks",
+              "name": "Black",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 25,
+                "currency": "USD"
+              }
+            }
+          }
+        ],
+        "taxIds": [
+          "#Sales Tax"
+        ]
+      }
+    }
+  },
+  "#SBSC Gators": {
+    "image": {
+      "url": "./bin/script/img/sbscLogo@2x.png",
+      "id": "#SBSC Gators",
+      "caption": "A picture of corona virus"
+    },
+    "data": {
+      "type": "ITEM",
+      "id": "#SBSC Gators",
+      "presentAtAllLocations": true,
+      "itemData": {
+        "name": "SBSC Gators",
+        "description": "Make a statement. Here is ours.",
+        "categoryId": "#Accessories Category",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Black SBSC Gators",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#SBSC Gators",
+              "name": "Black",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 30,
+                "currency": "USD"
+              }
+            }
+          }
+        ],
+        "taxIds": [
+          "#Sales Tax"
+        ]
+      }
+    }
+  },
+  "#SBSC Snap Back": {
+    "image": {
+      "url": "./bin/script/img/snapBack@2x.jpg",
+      "id": "#SBSC Snap Back",
+      "caption": "A picture of a sbsc snap back hat."
+    },
+    "data": {
+      "type": "ITEM",
+      "id": "#SBSC Snap Back",
+      "presentAtAllLocations": true,
+      "itemData": {
+        "name": "SBSC Snap Back",
+        "description": "Hate hats that cover your ears? We do too! These smaller crown hats will have you looking fly and less like Mcfly. Embroidered with the Classic SBSC logo, represent your favorite gym in this snappy snapback.",
+        "categoryId": "#Accessories Category",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#OSFM SBSC Snap Back",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#SBSC Snap Back",
+              "name": "OSFM Snap Back",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 20,
+                "currency": "USD"
+              }
+            }
+          }
+        ],
+        "taxIds": [
+          "#Sales Tax"
+        ]
+      }
+    }
+  },
+  "#Shaker Cup": {
+    "image": {
+      "url": "./bin/script/img/shakerCup@2x.png",
+      "id": "#Shaker Cup",
+      "caption": "A picture of a sbsc shaker cup."
+    },
+    "data": {
+      "type": "ITEM",
+      "id": "#Shaker Cup",
+      "presentAtAllLocations": true,
+      "itemData": {
+        "name": "Shaker Cup",
+        "description": "Not yet a shake weight but you can still practice shaking till you get a sick ass bicep pump with these new SBSC shaker cups. The big boy size measuring 20oz so you can fit all the protein and all the gains into one serving. It comes with the little wire sphere that you end up losing or throwing away. It also conveniently has a hook on the top so you have something to hold onto besides your hopes and dreams.",
+        "categoryId": "#Accessories Category",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#8oz Shaker Cup",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Shaker Cup",
+              "name": "8oz Shaker Cup",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 8,
+                "currency": "USD"
+              }
+            }
+          }
+        ],
+        "taxIds": [
+          "#Sales Tax"
+        ]
+      }
+    }
+  },
+  "#Neon Fanny Pack": {
+    "image": {
+      "url": "./bin/script/img/fannyPack@2x.png",
+      "id": "#Neon Fanny Pack",
+      "caption": "A picture of a fanny pack"
+    },
+    "data": {
+      "type": "ITEM",
+      "id": "#Neon Fanny Pack",
+      "presentAtAllLocations": true,
+      "itemData": {
+        "name": "Neon Fanny Pack",
+        "description": "Urban Dictionary says it best: A bag worn around the waist by people who think it is still 1990. 'Hey, your mom called and she wants her fanny pack back.'",
+        "categoryId": "#Accessories Category",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Pink Neon Fanny Pack",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Neon Fanny Pack",
+              "name": "Pink",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 12,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Green Neon Fanny Pack",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Neon Fanny Pack",
+              "name": "Green",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 12,
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#Orange Neon Fanny Pack",
+            "isDeleted": false,
+            "presentAtAllLocations": true,
+            "itemVariationData": {
+              "itemId": "#Neon Fanny Pack",
+              "name": "Orange",
+              "pricingType": "FIXED_PRICING",
+              "priceMoney": {
+                "amount": 12,
                 "currency": "USD"
               }
             }

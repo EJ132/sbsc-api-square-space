@@ -18,8 +18,8 @@ import { Client, ApiError } from 'square';
 import 'dotenv/config';
 
 const env = process.env.NODE_ENV;
-const accessToken = process.env[`SQUARE_${env.toUpperCase()}_ACCESS_TOKEN`]
-const squareApplicationId = process.env[`SQUARE_${env.toUpperCase()}_APPLICATION_ID`]
+const accessToken = process.env[`SQUARE_SANDBOX_ACCESS_TOKEN`]
+const squareApplicationId = process.env[`SQUARE_SANDBOX_APPLICATION_ID`]
 
 // Set Square credentials
 const config = { accessToken, environment:env }

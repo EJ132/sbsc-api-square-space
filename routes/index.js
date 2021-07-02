@@ -20,6 +20,7 @@ import { randomBytes } from 'crypto';
 import { catalogApi, locationsApi } from '../util/square-client';
 import { Cart } from '../models/cart';
 import CatalogList from '../models/catalog-list';
+import e from 'express';
 
 const router = express.Router();
 
@@ -40,6 +41,7 @@ router.get("/", async (req, res, next) => {
     const { result: { locations } } = await locationsApi.listLocations();
     // Get CatalogItem and CatalogImage object
     const { result: { objects } } = await catalogApi.listCatalog(undefined, types);
+    // console.log(objects)
     // Returns the catalog and first location ID, since we don't need to
     // print the full locationInfo array
     res.json({
@@ -74,15 +76,27 @@ router.post("/create-order", async (req, res, next) => {
     locationId
   } = req.body;
   try {
+
+    // Retrieves locations in order to display the store name
+    const { result: { locations } } = await locationsApi.listLocations();
+
     const orderRequestBody = {
       idempotencyKey: randomBytes(45).toString("hex"), // Unique identifier for request
       order: {
-        locationId,
+        locationId: locations[0].id,
         lineItems: [{
           quantity: itemQuantity,
           catalogObjectId: itemVarId // Id for CatalogItem object
-        }]
-      }
+        }],
+        taxes: [
+          {
+            uid: 'SalesTax',
+            name: 'Sales Tax',
+            percentage: '10',
+            scope: 'ORDER'
+          }
+        ],
+      },
     };
     const orderNew = new Cart(null, orderRequestBody);
     const order = await orderNew.create();
@@ -93,6 +107,7 @@ router.post("/create-order", async (req, res, next) => {
       })
   } catch (error) {
     next(error);
+    console.log(error)
   }
 });
 

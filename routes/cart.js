@@ -253,9 +253,7 @@ router.post("/update-order-shipping-information", async (req, res, next) => {
 
     // Retrieves locations in order to display the store name
     const { result: { locations } } = await locationsApi.listLocations();
-    console.log('made it to the end 4')
     let {result : order } =  await ordersApi.retrieveOrder(orderId);
-    console.log('made it to the end 3')
     const orderRequestBody = {
       idempotencyKey: randomBytes(45).toString("hex"), // Unique identifier for request
       order: {

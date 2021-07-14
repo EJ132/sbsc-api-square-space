@@ -14,34 +14,34 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import express from 'express';
-import JSONBig from 'json-bigint';
+import express from "express";
+import JSONBig from "json-bigint";
 
-import { randomBytes } from 'crypto';
-import { Cart } from '../models/cart';
-import { ordersApi, invoicesApi, paymentsApi } from '../util/square-client';
-import 'dotenv/config';
+import { randomBytes } from "crypto";
+import { Cart } from "../models/cart";
+import { ordersApi, invoicesApi, paymentsApi } from "../util/square-client";
+import "dotenv/config";
 
 const easyPostKey = process.env.EASYPOST_TEST_API_KEY;
-const Easypost = require('@easypost/api');
+const Easypost = require("@easypost/api");
 const easypost_api = new Easypost(easyPostKey);
 
-var nodemailer = require('nodemailer');
+var nodemailer = require("nodemailer");
 
 const router = express.Router();
 
 var transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: "gmail",
   auth: {
-    user: 'ejg132@gmail.com',
-    pass: 'Sweetnest'
-  }
+    user: "ejg132@gmail.com",
+    pass: "Sweetnest",
+  },
 });
 
 var mailOptions = {
-  from: 'ejg132@gmail.com',
-  to: 'ejg132@gmail.com',
-  subject: 'SBSC Receipt'
+  from: "ejg132@gmail.com",
+  to: "ejg132@gmail.com",
+  subject: "SBSC Receipt",
 };
 
 /**
@@ -83,46 +83,50 @@ router.post("/add-delivery-details", async (req, res, next) => {
     deliveryCity,
     deliveryState,
     deliveryPostal,
-    version
+    version,
   } = req.body;
   try {
-
     // Retrieves locations in order to display the store name
-    const { result: { locations } } = await locationsApi.listLocations();
+    const {
+      result: { locations },
+    } = await locationsApi.listLocations();
 
     const orderRequestBody = {
       idempotencyKey: randomBytes(45).toString("hex"), // Unique identifier for request
       order: {
         locationId: locations[0].id,
-        fulfillments: [{
-          type: "SHIPMENT", // SHIPMENT type is determined by the endpoint
-          state: "PROPOSED",
-          shipmentDetails: {
-            recipient: {
-              displayName: deliveryName,
-              phoneNumber: deliveryNumber,
-              email: deliveryEmail,
-              address: {
-                addressLine1: deliveryAddress,
-                administrativeDistrictLevel1: deliveryState,
-                locality: deliveryCity,
-                postalCode: deliveryPostal,
+        fulfillments: [
+          {
+            type: "SHIPMENT", // SHIPMENT type is determined by the endpoint
+            state: "PROPOSED",
+            shipmentDetails: {
+              recipient: {
+                displayName: deliveryName,
+                phoneNumber: deliveryNumber,
+                email: deliveryEmail,
+                address: {
+                  addressLine1: deliveryAddress,
+                  administrativeDistrictLevel1: deliveryState,
+                  locality: deliveryCity,
+                  postalCode: deliveryPostal,
+                },
               },
+              expectedShippedAt: deliveryTime,
             },
-            expectedShippedAt: deliveryTime,
           },
-        },],
+        ],
         version,
         idempotencyKey,
       },
     };
-    const { result: { order } } = await ordersApi.updateOrder(`${orderId}`,orderRequestBody);
+    const {
+      result: { order },
+    } = await ordersApi.updateOrder(`${orderId}`, orderRequestBody);
     const orderParsed = JSONBig.parse(JSONBig.stringify(order));
-    res.json(
-      {
-          result: "Success! Delivery details added!",
-          order: orderParsed
-        })
+    res.json({
+      result: "Success! Delivery details added!",
+      order: orderParsed,
+    });
   } catch (error) {
     next(error);
   }
@@ -130,14 +134,14 @@ router.post("/add-delivery-details", async (req, res, next) => {
 
 /**
  * Matches: POST /checkout/create-invoice
- * 
+ *
  * Description:
  *   Create an invoice if the customer opts to pay later. This also allows
  *   for in-person payment capture via Square mobile app at the time of
- *   delivery, resulting in a lower fee. This method only creates the 
+ *   delivery, resulting in a lower fee. This method only creates the
  *   invoice, it does not publish it yet. This allows for fully synchronous
  *   order confirmation with Square.
- * 
+ *
  *   You can learn more about the CreateInvoice endpoint here:
  *   https://developer.squareup.com/reference/square/invoices-api/create-invoice
  *
@@ -147,16 +151,14 @@ router.post("/add-delivery-details", async (req, res, next) => {
  *  idempotencyKey: Unique identifier for request from client
  */
 router.post("/create-invoice", async (req, res, next) => {
-  const {
-    orderId
-  } = req.body;
-  
+  const { orderId } = req.body;
+
   function nextWeekdayDate(date, day_in_week) {
     const ret = new Date(date || new Date());
-    ret.setDate(ret.getDate() + (day_in_week -1 - ret.getDay() + 7) % 7 + 1);
-  return ret;
+    ret.setDate(ret.getDate() + ((day_in_week - 1 - ret.getDay() + 7) % 7) + 1);
+    return ret;
   }
-  
+
   try {
     // Since deliveries happen every Tuesday, set the dueDate
     // to Tuesday using nextWeekdayDate()
@@ -164,37 +166,42 @@ router.post("/create-invoice", async (req, res, next) => {
     // Set due date to next Tuesday
     const dueDate = new nextWeekdayDate(date, 2);
     const dueDateString = dueDate.toISOString().split("T")[0];
-    let { result: { order } } = await ordersApi.retrieveOrder(orderId);
+    let {
+      result: { order },
+    } = await ordersApi.retrieveOrder(orderId);
     const orderRequestBody = {
       invoice: {
         locationId: order.locationId,
         orderId: orderId,
         paymentRequests: [
-        {
-          requestType: 'BALANCE',
-          //dueDate: order.expectedShippedAt,
-          dueDate: dueDateString,
-          reminders: [
           {
-            message: 'Your order is scheduled for tomorrow',
-            relativeScheduledDays: -1
-          }]
-        }],
-        deliveryMethod: 'SHARE_MANUALLY',
-        idempotencyKey: randomBytes(45).toString("hex")
-      }
+            requestType: "BALANCE",
+            //dueDate: order.expectedShippedAt,
+            dueDate: dueDateString,
+            reminders: [
+              {
+                message: "Your order is scheduled for tomorrow",
+                relativeScheduledDays: -1,
+              },
+            ],
+          },
+        ],
+        deliveryMethod: "SHARE_MANUALLY",
+        idempotencyKey: randomBytes(45).toString("hex"),
+      },
     };
-    const { result: { invoice } } = await invoicesApi.createInvoice(orderRequestBody);
+    const {
+      result: { invoice },
+    } = await invoicesApi.createInvoice(orderRequestBody);
     const invoiceParsed = JSONBig.parse(JSONBig.stringify(invoice));
     //const orderParsed = JSONBig.parse(JSONBig.stringify(order));
     const cart = new Cart(orderId);
     order = await cart.info();
-    res.json(
-      {
-          result: "Success! Invoice created!",
-          invoice: JSONBig.parse(JSONBig.stringify(invoice)),
-          order: order
-        })
+    res.json({
+      result: "Success! Invoice created!",
+      invoice: JSONBig.parse(JSONBig.stringify(invoice)),
+      order: order,
+    });
   } catch (error) {
     next(error);
   }
@@ -217,10 +224,9 @@ router.post("/create-invoice", async (req, res, next) => {
  *  nonce: Card nonce (a secure single use token) created by the Square Payment Form
  */
 
-router.post("/verify-address", async (req, res, next) => {
-
+router.post("/get-shipping-rates", async (req, res, next) => {
   try {
-    console.log(req.body.addressDetails)
+    // console.log(req.body.addressDetails)
 
     // const toAddress = new api.Address({ ... });
     // const fromAddress = new api.Address({ ... });
@@ -228,16 +234,19 @@ router.post("/verify-address", async (req, res, next) => {
     // const customsInfo = new api.CustomsInfo({ ... });
 
     const toAddress = new easypost_api.Address({
-      verify: ['delivery'],
+      verify: ["delivery"],
       street1: req.body.addressDetails[2].addressLine1,
       city: req.body.addressDetails[3].city,
       state: req.body.addressDetails[4].state,
       zip: req.body.addressDetails[5].zip,
-      country: 'US',
-      company: 'SBSC',
+      country: "US",
+      company: "",
       phone: req.body.addressDetails[6].phoneNumber,
-      carrier_facility: 'USPS',
-      name: req.body.addressDetails[0].firstName + ' ' + req.body.addressDetails[1].lastName,
+      carrier_facility: "USPS",
+      name:
+        req.body.addressDetails[0].firstName +
+        " " +
+        req.body.addressDetails[1].lastName,
       email: req.body.addressDetails[7].emailAddress,
     });
 
@@ -246,33 +255,202 @@ router.post("/verify-address", async (req, res, next) => {
       city: "Harbor City",
       state: "CA",
       zip: "90710",
-      country: 'US',
-      company: 'SBSC',
+      country: "US",
+      company: "SBSC",
       phone: "2169787444",
-      carrier_facility: 'USPS',
+      carrier_facility: "USPS",
       name: "Ashley Contorno",
       email: "ashleycontorno@gmail.com",
     });
 
     const parcel = new easypost_api.Parcel({
-      length: 20.2,
-      width: 10.9,
-      height: 5,
-      weight: 10
+      predefined_package: "FlatRateEnvelope",
+      weight: 16,
     });
-    
+
+    // toAddress.save().then((addr) => {
+    //   console.log(addr);
+    //   if(addr.verifications.delivery.success){
+    //     res.json({
+    //       result: "Address Verified!",
+    //       data: true
+    //     })
+    //   } else {
+    //     res.json({
+    //       result: "Address not valid!",
+    //       data: false
+    //     })
+    //   }
+    // });
+
+    const shipment = new easypost_api.Shipment({
+      to_address: toAddress,
+      from_address: fromAddress,
+      parcel: parcel,
+    });
+
+    shipment.save().then((shipment) => {
+      // console.log(shipment.rates)
+      const shippingResult = shipment.rates.filter(function (shipment) {
+        // console.log(shipment)
+        return shipment.service === "Priority";
+      });
+      console.log(shippingResult);
+      if (res) {
+        res.json({
+          result: "Shipment created and rates generated!",
+          data: {
+            shippingId: shipment.id,
+            rateId: shippingResult[0].id,
+          },
+        });
+      } else {
+        res.json({
+          result: "Shipment not created!",
+          data: {},
+        });
+      }
+    });
+  } catch (error) {
+    next(error);
+    console.log(error);
+  }
+});
+
+router.post("/get-shipping-rates/:id", async (req, res, next) => {
+  console.log(req.body);
+  const id = req.params.id;
+
+  const shippingRates = easypost_api.Shipment.retrieve(id).then((shipment) => {
+    console.log(shipment.rates);
+  });
+
+  try {
+    res.json({
+      result: "Successfully retrieved shipping details",
+      data: {},
+    });
+  } catch (error) {
+    next(error);
+    console.log(error);
+  }
+});
+
+router.post("/set-shipping", async (req, res, next) => {
+  const body = req.body;
+  console.log(body);
+
+  const purchaseShipping = easypost_api.Shipment.retrieve(body.shippingId).then(
+    (shipment) => {
+      shipment.buy(body.rateId).then((res) => {
+        console.log(res);
+      });
+    }
+  );
+
+  try {
+    res.json({
+      result: "Successfully purchased shipping",
+      data: {},
+    });
+  } catch (error) {
+    next(error);
+    console.log(error);
+  }
+});
+
+router.post("/update-shipping-fees", async (req, res, next) => {
+  const id = req.body.checkoutId;
+  const version = parseInt(req.body.version);
+  console.log(req.body);
+  try {
+    const response = await ordersApi.updateOrder(id, {
+      order: {
+        locationId: "LZPBX0EZB9PAV",
+        serviceCharges: [
+          {
+            name: "Shipping",
+            amountMoney: {
+              amount: 7,
+              currency: "USD",
+            },
+            calculationPhase: "TOTAL_PHASE",
+            taxable: false,
+          },
+        ],
+        version: version,
+      },
+      idempotencyKey: randomBytes(45).toString("hex"),
+    });
+
+    res.json({
+      result: "Successfully added shipping fees",
+      data: JSONBig.parse(JSONBig.stringify(response.result)),
+    });
+    console.log(response.result);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.post("/verify-address", async (req, res, next) => {
+  try {
+    console.log(req.body.addressDetails);
+
+    // const toAddress = new api.Address({ ... });
+    // const fromAddress = new api.Address({ ... });
+    // const parcel = new api.Parcel({ ... });
+    // const customsInfo = new api.CustomsInfo({ ... });
+
+    const toAddress = new easypost_api.Address({
+      verify: ["delivery"],
+      street1: req.body.addressDetails[2].addressLine1,
+      city: req.body.addressDetails[3].city,
+      state: req.body.addressDetails[4].state,
+      zip: req.body.addressDetails[5].zip,
+      country: "US",
+      company: "SBSC",
+      phone: req.body.addressDetails[6].phoneNumber,
+      carrier_facility: "USPS",
+      name:
+        req.body.addressDetails[0].firstName +
+        " " +
+        req.body.addressDetails[1].lastName,
+      email: req.body.addressDetails[7].emailAddress,
+    });
+
+    const fromAddress = new easypost_api.Address({
+      street1: "26640 S Western Ave E-2",
+      city: "Harbor City",
+      state: "CA",
+      zip: "90710",
+      country: "US",
+      company: "SBSC",
+      phone: "2169787444",
+      carrier_facility: "USPS",
+      name: "Ashley Contorno",
+      email: "ashleycontorno@gmail.com",
+    });
+
+    const parcel = new easypost_api.Parcel({
+      length: 12.5,
+      width: 9.5,
+      height: 1.5,
+      weight: 16,
+    });
+
     toAddress.save().then((addr) => {
       console.log(addr);
-      if(addr.verifications.delivery.success){
+      if (addr.verifications.delivery.success) {
         res.json({
           result: "Address Verified!",
-          data: true
-        })
+          data: true,
+        });
       } else {
         res.json({
           result: "Address not valid!",
-          data: false
-        })
+          data: false,
+        });
       }
     });
 
@@ -281,42 +459,41 @@ router.post("/verify-address", async (req, res, next) => {
     //   from_address: fromAddress,
     //   parcel: parcel
     // });
-    
-    // shipment.save().then(console.log);
 
+    // shipment.save().then(console.log);
   } catch (error) {
     next(error);
-    console.log(error)
+    console.log(error);
   }
-  
 });
 
 router.post("/payment", async (req, res, next) => {
-  const {
-    orderId,
-    idempotencyKey,
-    nonce
-  } = req.body;
+  const { orderId, idempotencyKey, nonce } = req.body;
   let orderRequestBody;
   try {
     // get the latest order information in case the price is changed from a different session
 
     //ADD SHIPPING
     let data = await ordersApi.retrieveOrder(orderId);
-    let orderDetails = JSON.parse(data.body)
-    console.log(orderDetails.order)
+    let orderDetails = JSON.parse(data.body);
+    console.log(orderDetails.order);
     orderDetails.order.total_service_charge_money.amount = 4;
     orderDetails.order.net_amounts.service_charge_money.amount = 4;
     orderDetails.order.locationId = orderDetails.order.location_id;
-    console.log(orderDetails)
+    console.log(orderDetails);
     // data = {...data, }
-    await ordersApi.updateOrder(orderId, orderDetails).then(result => {console.log('made it here'); console.log(result)})
+    await ordersApi.updateOrder(orderId, orderDetails).then((result) => {
+      console.log("made it here");
+      console.log(result);
+    });
     // console.log(data.body)
     // console.log(JSON.parse(data.body))
     // let amount = parseInt(order.totalMoney.amount)
-    // console.log(order.totalMoney) 
+    // console.log(order.totalMoney)
 
-    const { result: { order } } = await ordersApi.retrieveOrder(orderId);
+    const {
+      result: { order },
+    } = await ordersApi.retrieveOrder(orderId);
 
     if (order.totalMoney.amount > 0) {
       // Payment can only be made when order amount is greater than 0
@@ -332,23 +509,24 @@ router.post("/payment", async (req, res, next) => {
         // amountMoney: (order.totalMoney + 4.50) + (order.totalMoney * 0.085).toFixed(2), // Provides total amount of money and currency to charge for the order.
         amountMoney: {
           amount: order.totalMoney.amount,
-          currency: 'USD'
+          currency: "USD",
         },
         orderId: order.id, // Order that is associated with the payment
       };
     } else {
       // Settle an order with a total of 0.
       await ordersApi.payOrder(order.id, {
-        idempotencyKey
+        idempotencyKey,
       });
     }
-    const { result: { payment } } = await paymentsApi.createPayment(orderRequestBody);
+    const {
+      result: { payment },
+    } = await paymentsApi.createPayment(orderRequestBody);
     const paymentParsed = JSONBig.parse(JSONBig.stringify(payment));
-    console.log('Payment Details')
-    console.log(paymentParsed)
+    console.log("Payment Details");
+    console.log(paymentParsed);
 
-    mailOptions.html = 
-    `
+    mailOptions.html = `
     <h2 style="width: 100%; textAlign: center;">
       South Bay Strength Company
     </h2>
@@ -361,25 +539,23 @@ router.post("/payment", async (req, res, next) => {
     <br>
     <p>If you have any questions regarding an order reach out to us here: info@southbaystrengthco.com</p>
     <h4>South Bay Strength Co.</h4>
-    `
+    `;
 
-
-    transporter.sendMail(mailOptions, function(error, info){
+    transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
         console.log(error);
       } else {
-        console.log('Email sent: ' + info.response);
+        console.log("Email sent: " + info.response);
       }
     });
 
-    res.json(
-      {
-          result: "Success! Order paid!",
-          payment: paymentParsed
-        })
+    res.json({
+      result: "Success! Order paid!",
+      payment: paymentParsed,
+    });
   } catch (error) {
     next(error);
-    console.log(error)
+    console.log(error);
   }
 });
 
